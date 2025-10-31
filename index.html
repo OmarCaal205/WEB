@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDA #3 - Osvin Caal 0902-23-23142</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- MENÚ DE NAVEGACIÓN -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#simulador">Simulación</a></li>
+      <li><a href="#teoria">Teoría</a></li>
+      <li><a href="#creditos">Créditos</a></li>
+    </ul>
+  </nav>
+
+  <!-- SECCIÓN INICIO -->
+  <section id="inicio">
+    <h1>Proyecto Final – Autómata con Pila (PDA #3)</h1>
+    <p><strong>Curso:</strong> Autómatas y Lenguajes Formales – Ciclo VI</p>
+    <p><strong>Instructor:</strong> Ing. Héctor A. Macz</p>
+    <p><strong>Estudiante:</strong> Osvin Omar Caal Aju – Carné 0902-23-23142</p>
+
+    <h2>Descripción del Proyecto</h2>
+    <p>
+      Este proyecto corresponde al desarrollo y simulación de un
+      <strong>Autómata con Pila (PDA)</strong> en entorno web, como parte del curso de
+      Autómatas y Lenguajes Formales. El objetivo es diseñar un autómata
+      capaz de reconocer un lenguaje no regular, implementando su
+      funcionamiento mediante una página web interactiva.
+    </p>
+
+    <p><strong>Lenguaje:</strong> L = { aⁿ bᵐ x y* cᵐ aⁿ | n ≥ 2, m ≥ 1 }</p>
+
+    <h2>Objetivo General</h2>
+    <p>
+      Desarrollar una simulación web funcional que represente el
+      comportamiento de un Autómata con Pila (PDA) diseñado para reconocer
+      el lenguaje L, permitiendo el ingreso de cadenas, la visualización de
+      la pila y la verificación de aceptación o rechazo de la cadena
+      ingresada.
+    </p>
+  </section>
+
+  <!-- SECCIÓN SIMULADOR -->
+  <section id="simulador">
+    <h2>Simulador del PDA</h2>
+    <div class="input-area">
+      <input
+        type="text"
+        id="cadena"
+        placeholder="Ingrese una cadena (ej: aabxcca)"
+      />
+      <button onclick="simularPDA()">Simular</button>
+    </div>
+
+    <div class="output">
+      <h3>Resultado:</h3>
+      <pre id="resultado"></pre>
+      <h3>Pila:</h3>
+      <div id="pila"></div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN TEORÍA -->
+  <section id="teoria">
+    <h2>Descripción Teórica del PDA</h2>
+    <table class="tabla-teoria">
+      <tr><th>Elemento</th><th>Descripción</th></tr>
+      <tr><td>Σ (Alfabeto)</td><td>{ a, b, c, x, y }</td></tr>
+      <tr><td>Γ (Símbolos de pila)</td><td>{ A, B, Z }</td></tr>
+      <tr><td>Q (Estados)</td><td>{ q₀, q₁, q₂, q₄, q₅ }</td></tr>
+      <tr><td>q₀</td><td>Estado inicial</td></tr>
+      <tr><td>Z₀</td><td>Símbolo inicial de pila</td></tr>
+      <tr><td>F</td><td>{ q₅ } (estado de aceptación)</td></tr>
+    </table>
+
+    <p>
+      El autómata empuja “A” por cada ‘a’, luego “B” por cada ‘b’. Al llegar a
+      “x” entra en el estado de transición y lee los posibles “y”. Posteriormente,
+      por cada “c” saca un símbolo “B” de la pila y finalmente elimina las “A”
+      cuando aparecen las últimas “a”. Si la pila queda con solo Z, la cadena
+      es aceptada.
+    </p>
+  </section>
+
+  <!-- SECCIÓN CRÉDITOS -->
+  <section id="creditos">
+    <h2>Créditos</h2>
+    <p>Desarrollado por <strong>Osvin Omar Caal Aju</strong></p>
+    <p>Carné: <strong>0902-23-23142</strong></p>
+    <p>Facultad de Ingeniería en Sistemas - Universidad Mariano Gálvez</p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

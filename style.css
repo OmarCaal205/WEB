@@ -1,0 +1,156 @@
+/* ====== MENÚ DE NAVEGACIÓN ====== */
+.navbar {
+  background-color: #004aad;
+  padding: 10px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* ====== CUERPO GENERAL ====== */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #f8fafc;
+  color: #222;
+  margin: 0;
+  text-align: center;
+}
+
+h1, h2, h3 {
+  color: #004aad;
+}
+
+section {
+  padding: 30px;
+  margin-top: 20px;
+}
+
+input {
+  padding: 10px;
+  width: 250px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #004aad;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0073ff;
+}
+
+/* ====== SIMULADOR ====== */
+.input-area {
+  margin: 20px;
+}
+
+.output {
+  margin-top: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: inline-block;
+  text-align: left;
+}
+
+#pila {
+  border: 1px solid #ccc;
+  min-height: 100px;
+  width: 100px;
+  margin: 10px auto;
+  background: #eef2ff;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  font-weight: bold;
+}
+
+.pila-item {
+  background: #004aad;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+  margin: 2px 0;
+}
+
+/* ====== TABLA TEÓRICA ====== */
+.tabla-teoria {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+.tabla-teoria th, .tabla-teoria td {
+  border: 1px solid #004aad;
+  padding: 8px;
+}
+
+.tabla-teoria th {
+  background-color: #004aad;
+  color: white;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar li {
+    margin: 10px 0;
+  }
+
+  input {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 70%;
+  }
+
+  .output {
+    width: 90%;
+    padding: 10px;
+  }
+
+  #pila {
+    width: 80px;
+  }
+
+  .tabla-teoria {
+    width: 95%;
+    font-size: 14px;
+  }
+}
