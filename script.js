@@ -65,7 +65,7 @@ function simularPDA() {
         break;
 
       case "q3": // leer cᵐ y luego aⁿ finales
-        if (simbolo === "c" && tope === "B") {
+        if (simbolo === "c" && pila.includes("B")) {
           pila.pop(); // sigue sacando B por cada c
         } else if (simbolo === "a" && pila.includes("A")) {
           estado = "q4";
@@ -88,11 +88,13 @@ function simularPDA() {
     pasos += `( ${estado}, ${cadena.slice(i + 1)}, ${pila.join("")} )\n`;
   }
 
-  // ✅ Verificación final ajustada
+  // ✅ Aceptación final corregida
   if ((estado === "q4" || estado === "q3") && pila.join("") === "Z") {
     resultado.textContent = pasos + "\n✅ Cadena aceptada por el PDA.";
   } else {
     resultado.textContent = pasos + "\n❌ Cadena no aceptada (final incorrecto).";
   }
 }
+
 //ACTUALIZACION DE SCRIPT.JSFUNCIONAL
+
