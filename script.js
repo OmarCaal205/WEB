@@ -39,7 +39,7 @@ function simularPDA() {
           estado = "q1";
           pila.push("B");
         } else {
-          return (resultado.textContent = pasos + "\n❌ Cadena no aceptada (error en q0).");
+          return (resultado.textContent = pasos + "\n❌ Error en q0.");
         }
         break;
 
@@ -49,37 +49,37 @@ function simularPDA() {
         } else if (simbolo === "x") {
           estado = "q2";
         } else {
-          return (resultado.textContent = pasos + "\n❌ Cadena no aceptada (error en q1).");
+          return (resultado.textContent = pasos + "\n❌ Error en q1.");
         }
         break;
 
       case "q2": // leer y* o empezar cᵐ
         if (simbolo === "y") {
-          // y no cambia pila
+          // no cambia pila
         } else if (simbolo === "c" && pila.includes("B")) {
           estado = "q3";
           pila.pop(); // saca un B
         } else {
-          return (resultado.textContent = pasos + "\n❌ Cadena no aceptada (error en q2).");
+          return (resultado.textContent = pasos + "\n❌ Error en q2.");
         }
         break;
 
       case "q3": // leer cᵐ y luego aⁿ finales
         if (simbolo === "c" && pila.includes("B")) {
-          pila.pop(); // sigue sacando B por cada c
+          pila.pop(); // saca B
         } else if (simbolo === "a" && pila.includes("A")) {
           estado = "q4";
-          pila.pop(); // empieza a sacar A
+          pila.pop(); // saca A
         } else {
-          return (resultado.textContent = pasos + "\n❌ Cadena no aceptada (error en q3).");
+          return (resultado.textContent = pasos + "\n❌ Error en q3.");
         }
         break;
 
       case "q4": // leer aⁿ finales
-        if (simbolo === "a" && tope === "A") {
+        if (simbolo === "a" && pila.includes("A")) {
           pila.pop();
-        } else if (simbolo !== "a") {
-          return (resultado.textContent = pasos + "\n❌ Cadena no aceptada (error en q4).");
+        } else {
+          return (resultado.textContent = pasos + "\n❌ Error en q4.");
         }
         break;
     }
@@ -88,8 +88,8 @@ function simularPDA() {
     pasos += `( ${estado}, ${cadena.slice(i + 1)}, ${pila.join("")} )\n`;
   }
 
-  // ✅ Aceptación final corregida
-  if ((estado === "q4" || estado === "q3") && pila.join("") === "Z") {
+  // ✅ Aceptación más flexible
+  if ((estado === "q4" || estado === "q3") && (pila.join("") === "Z" || pila.join("") === "ZA")) {
     resultado.textContent = pasos + "\n✅ Cadena aceptada por el PDA.";
   } else {
     resultado.textContent = pasos + "\n❌ Cadena no aceptada (final incorrecto).";
@@ -97,4 +97,5 @@ function simularPDA() {
 }
 
 //ACTUALIZACION DE SCRIPT.JSFUNCIONAL
+
 
